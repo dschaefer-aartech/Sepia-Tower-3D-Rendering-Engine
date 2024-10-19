@@ -1,0 +1,152 @@
+body {
+
+    color:#ffffff;
+    background-color: #080808;
+
+    font-family:'Verdana';
+
+}
+
+td {
+
+    text-align:center; vertical-align:center;
+    font-size:8pt;
+
+}
+
+p.section {
+
+    font-weight:bold;
+    letter-spacing:2mm;
+    color:#404040;
+    font-size:6pt;
+
+}
+
+canvas {
+
+    border: 1px solid #a0a0a0;
+
+}
+
+svg {
+
+    border: 1px solid #a0a0a0;
+
+}
+
+rect.preselected { 
+
+    stroke: #f0f0f0;
+    stroke-width: 2;
+    animation:1s blinkFrame linear infinite;
+    -webkit-animation:1s blinkFrame linear infinite;
+    -moz-animation:1s blinkFrame linear infinite;
+
+ }
+
+ rect.selected { 
+    
+    stroke: #ffffff; 
+    stroke-width: 2; 
+
+}
+
+.frame {
+
+   stroke: #ffff00; 
+   stroke-width: 1;   
+
+}
+
+.none {
+
+   fill:#555555;
+
+}
+
+.pursuing {
+
+   fill:#555555;
+   stroke: #ffff00;
+   stroke-width: 2;
+   animation:2s blinkFrame linear infinite;
+   -webkit-animation:2s blinkFrame linear infinite;
+   -moz-animation:2s blinkFrame linear infinite;
+
+}
+
+.elligible {
+
+   fill:#555555;
+   stroke: #00854d;
+   stroke-width: 2;
+   animation:.5s blinkFrame linear infinite;
+   -webkit-animation:.5s blinkFrame linear infinite;
+   -moz-animation:.5s blinkFrame linear infinite;   
+
+}
+
+.obtained {
+
+   stroke-width: 0;
+   fill: #00854d;
+
+}
+
+.on {
+
+   fill:#00ff00;
+   animation:2s blinker linear infinite;
+   -webkit-animation:2s blinker linear infinite;
+   -moz-animation:2s blinker linear infinite;  
+
+}
+
+ @-moz-keyframes blinkFrame {
+
+    0% { stroke-width: 2; }
+    50% { stroke-width: 0; }
+    100% { stroke-width: 2; }
+
+ }
+
+ @-webkit-keyframes blinkFrame {
+
+    0% { stroke-width: 2; }
+    50% { stroke-width: 0; }
+    100% { stroke-width: 2; }
+
+ }
+
+ @keyframes blinkFrame {
+
+    0% { stroke-width: 2; }
+    50% { stroke-width: 0; }
+    100% { stroke-width: 2; }
+
+ }
+
+ @-moz-keyframes blinker {
+
+    0% { opacity: 1.0; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1.0; }
+
+ }
+
+ @-webkit-keyframes blinker {
+
+    0% { opacity: 1.0; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1.0; }
+
+ }
+
+ @keyframes blinker {
+
+    0% { opacity: 1.0; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1.0; }
+
+ }

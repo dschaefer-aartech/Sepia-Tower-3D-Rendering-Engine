@@ -1,0 +1,189 @@
+<HTML>
+
+    <HEAD>
+        <TITLE>[MrP] Sepia Tower 3D (v201) - M.O.I.</TITLE>
+        <LINK REL="STYLESHEET" HREF="myStyles.css">
+    </HEAD>
+
+    <BODY>
+
+        <TABLE WIDTH="100%" HEIGHT="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+            <COLGROUP><COL WIDTH="50%"><COL WIDTH="50%""></COLGROUP>
+
+            <TR>
+                <TD COLSPAN="2">
+                    <P CLASS="section">MISSION OBJECTIVES INDICATOR</P>
+                </TD>
+            </TR>
+
+            <TR>
+                <TD>
+                    <P>OPTION A</P>
+                    <P>
+                        <SVG WIDTH="200PX" HEIGHT="240PX" ID="mySVG1"></SVG>
+                    </P>
+                </TD>
+                <TD>
+                    <P>OPTION B</P>
+                    <P>
+                        <SVG WIDTH="200PX" HEIGHT="240PX" ID="mySVG2"></SVG>
+                    </P>
+                </TD>
+            </TR>
+
+            <TR>
+                <TD>
+                    <BUTTON onClick="setStat('AlbumA','pursuing')">A:pur</BUTTON> _ <BUTTON onClick="setStat('Key1','pursuing')">K1:pur</BUTTON> _ <BUTTON onClick="setStat('Key2','pursuing')">K2:pur</BUTTON>
+                    <BR><BUTTON onClick="setStat('Key1','obtained')">K1:obt</BUTTON> _ <BUTTON onClick="setStat('Key2','obtained')">K2:obt</BUTTON> _ <BUTTON onClick="setStat('AlbumA','elligible')">A:ell</BUTTON>
+                    <BR><BUTTON onClick="setStat('AlbumA','obtained')">A:obt</BUTTON>
+                </TD>
+                <TD>
+                    <BUTTON onClick="setStat('AlbumB','pursuing')">A:pur</BUTTON> _ <BUTTON onClick="setStat('Disc','pursuing')">D:pur</BUTTON>
+                    <BR><BUTTON onClick="setStat('Disc','obtained')">D:obt</BUTTON> _ <BUTTON onClick="setStat('AlbumB','elligible')">A:ell</BUTTON>
+                    <BR><BUTTON onClick="setStat('AlbumB','obtained')">A:obt</BUTTON>
+                    <BR><BUTTON onClick="setStat('PW1','pursuing')">PW1:pur</BUTTON> _ <BUTTON onClick="setStat('PW2','pursuing')">PW2:pur</BUTTON> _ <BUTTON onClick="setStat('PW3','pursuing')">PW3:pur</BUTTON>
+                    <BR><BUTTON onClick="setStat('PW1','obtained')">PW1:obt</BUTTON> _ <BUTTON onClick="setStat('PW2','obtained')">PW2:obt</BUTTON> _ <BUTTON onClick="setStat('PW3','obtained')">PW3:obt</BUTTON>
+                </TD>
+            </TR>
+            
+        </TABLE>
+
+        <SCRIPT TYPE="text/javascript">
+
+            var svg1 = document.getElementById("mySVG1");
+            var svg2 = document.getElementById("mySVG2");
+
+            addMOI();
+
+            function addMOI(){
+
+                // OPTION A
+                addRect("AlbumA", 80, 20, svg1, "A");
+                addRect("Key1", 50, 80, svg1, "K1");
+                addRect("Key2", 110, 80, svg1, "K2");
+
+                const LL1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    LL1.setAttribute("x1", 100);
+                    LL1.setAttribute("y1", 60);
+                    LL1.setAttribute("x2", 100);
+                    LL1.setAttribute("y2", 100);
+                    LL1.setAttribute("stroke", "#ffffff");
+                    LL1.setAttribute("id", "line1");
+                svg1.appendChild(LL1);
+
+                const LL2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    LL2.setAttribute("x1", 90);
+                    LL2.setAttribute("y1", 100);
+                    LL2.setAttribute("x2", 110);
+                    LL2.setAttribute("y2", 100);
+                    LL2.setAttribute("stroke", "#ffffff");
+                    LL2.setAttribute("id", "line2");
+                svg1.appendChild(LL2);
+
+                // OPTION B
+                addRect("AlbumB", 80, 20, svg2, "A");
+                addRect("Disc", 50, 80, svg2, "D");
+
+                const LL3 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    LL3.setAttribute("x1", 95);
+                    LL3.setAttribute("y1", 60);
+                    LL3.setAttribute("x2", 95);
+                    LL3.setAttribute("y2", 100);
+                    LL3.setAttribute("stroke", "#ffffff");
+                    LL3.setAttribute("id", "line3");
+                svg2.appendChild(LL3);
+
+                const LL4 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    LL4.setAttribute("x1", 95);
+                    LL4.setAttribute("y1", 100);
+                    LL4.setAttribute("x2", 90);
+                    LL4.setAttribute("y2", 100);
+                    LL4.setAttribute("stroke", "#ffffff");
+                    LL4.setAttribute("id", "line4");
+                svg2.appendChild(LL4);
+
+                addRect("PW1", 110, 80, svg2, "PW1");
+                addRect("PW2", 110, 130, svg2, "PW2");
+                addRect("PW3", 110, 180, svg2, "PW3");
+
+                const GG = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                    GG.setAttribute("stroke", "#ffffff");
+                svg2.appendChild(GG);
+
+                const P0 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    P0.setAttribute("stroke-dasharray", "5,5");
+                    P0.setAttribute("d", "M105 60 l0 140");
+                GG.appendChild(P0);
+
+                const P1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    P1.setAttribute("stroke-dasharray", "5,5");
+                    P1.setAttribute("d", "M105 100 l5 0");
+                GG.appendChild(P1);
+
+                const P2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    P2.setAttribute("stroke-dasharray", "5,5");
+                    P2.setAttribute("d", "M105 150 l5 0");
+                GG.appendChild(P2);
+
+                const P3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    P3.setAttribute("stroke-dasharray", "5,5");
+                    P3.setAttribute("d", "M105 200 l5 0");
+                GG.appendChild(P3);
+
+            }
+
+            function addRect(myName, xPos, yPos, mysvg, myDesignation){
+
+                // .createElementNS() creates an SVG-native element (which is formatted in XML)
+                //      ( by contrast, .createElement() creates a DOM-native element (which is formatted in HTML) )
+
+                // NOTE: http://www.w3.org/2000/svg - while looking like a website - is, in fact, a URL designating the XML namespace for manipulating SVG elements
+                // IT IS NOT A WEBSITE! This code will work even without internet access and constitutes no dependency vulnerability
+
+                // this will be the holding object ("g" == group) to which we will attach a rectangle and a text element
+                const GG = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                    GG.setAttribute("x", xPos);
+                    GG.setAttribute("y", yPos);
+
+                mysvg.appendChild(GG);
+
+                const ZZ = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                    ZZ.setAttribute("x", xPos);
+                    ZZ.setAttribute("y", yPos);
+                    ZZ.setAttribute("width", 40);
+                    ZZ.setAttribute("height", 40);
+                    ZZ.setAttribute("fill", "#ffffff");""
+                    ZZ.setAttribute("id", myName);
+                    ZZ.setAttribute("class", "none");
+
+                    ZZ.setAttribute("stroke", null);
+                    ZZ.setAttribute("stroke-width", null);
+                    ZZ.setAttribute("opacity", 1.0);
+
+                GG.appendChild(ZZ);
+
+                let offSetX = 0;
+                if (myDesignation.length == 1){ offSetX = 17; }
+                if (myDesignation.length == 2){ offSetX = 13; }
+                if (myDesignation.length == 3){ offSetX = 9; }
+
+                const TT = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    TT.setAttribute("x", xPos + offSetX);
+                    TT.setAttribute("y", yPos + 25);
+                    TT.setAttribute("fill", "#ffffff");
+                    TT.textContent = myDesignation;
+                GG.appendChild(TT);
+
+            }
+
+            function setStat(myObject, myStatus){
+
+                let obj = document.getElementById(myObject);
+                obj.setAttribute("class", myStatus);
+
+            }
+
+        </SCRIPT>
+
+    </BODY>
+</HTML>
